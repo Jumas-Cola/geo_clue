@@ -106,10 +106,10 @@ var doc = `{
                 "area_ru": {
                     "type": "string"
                 },
-                "city_id": {
+                "country_id": {
                     "type": "integer"
                 },
-                "country_id": {
+                "id": {
                     "type": "integer"
                 },
                 "region_ru": {
@@ -123,7 +123,7 @@ var doc = `{
         "models.Country": {
             "type": "object",
             "properties": {
-                "country_id": {
+                "id": {
                     "type": "integer"
                 },
                 "title_ru": {

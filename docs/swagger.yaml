@@ -4,9 +4,9 @@ definitions:
     properties:
       area_ru:
         type: string
-      city_id:
-        type: integer
       country_id:
+        type: integer
+      id:
         type: integer
       region_ru:
         type: string
@@ -15,7 +15,7 @@ definitions:
     type: object
   models.Country:
     properties:
-      country_id:
+      id:
         type: integer
       title_ru:
         type: string
