@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"geo_clue/models"
 	"net/http"
 	"strconv"
@@ -47,11 +48,11 @@ func GetCities(c *gin.Context) {
 	}
 
 	if country_id != "" {
-		models.DB.Limit(lim).Where("LOWER(title_ru) LIKE LOWER(?%%) AND country_id = ?",
-			str, country_id).Find(&cities)
+		models.DB.Limit(lim).Where("LOWER(title_ru) LIKE LOWER(?) AND country_id = ?",
+			fmt.Sprintf("%s%%", str), country_id).Find(&cities)
 	} else {
-		models.DB.Limit(lim).Where("LOWER(title_ru) LIKE LOWER(?%%)",
-			str).Find(&cities)
+		models.DB.Limit(lim).Where("LOWER(title_ru) LIKE LOWER(?)",
+			fmt.Sprintf("%s%%", str)).Find(&cities)
 	}
 
 	c.JSON(200, cities)

@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"geo_clue/models"
 	"net/http"
 	"strconv"
@@ -44,7 +45,7 @@ func GetCountries(c *gin.Context) {
 		return
 	}
 
-	models.DB.Limit(lim).Where("LOWER(title_ru) LIKE LOWER(?%%)", str).Find(&countries)
+	models.DB.Limit(lim).Where("LOWER(title_ru) LIKE LOWER(?)", fmt.Sprintf("%s%%", str)).Find(&countries)
 
 	c.JSON(200, countries)
 }
