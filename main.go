@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"os"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 
 	"github.com/jackc/pgx/v4/pgxpool"
 )
@@ -69,7 +70,7 @@ func getCities(c *gin.Context) {
 		}
 		sql_str += fmt.Sprintf(` AND country_id=%s`, country_id)
 	}
-	sql_str += fmt.Sprintf(`ORDER BY NOT important LIMIT %s`, lim)
+	sql_str += fmt.Sprintf(`LIMIT %s`, lim)
 	fmt.Println(sql_str)
 
 	rows, err := conn.Query(context.Background(), sql_str)
