@@ -22,6 +22,11 @@ func GetCities(c *gin.Context) {
 	lim := 10
 	country_id := c.Query("country")
 
+	if !CheckValid(str) {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid characters in param <str>"})
+		return
+	}
+
 	h := headers{}
 
 	var cities []models.City

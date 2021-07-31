@@ -20,6 +20,11 @@ func GetCountries(c *gin.Context) {
 	str := c.Query("str")
 	lim := 10
 
+	if !CheckValid(str) {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid characters in param <str>"})
+		return
+	}
+
 	h := headers{}
 
 	var countries []models.Country
