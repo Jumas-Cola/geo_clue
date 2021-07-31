@@ -61,7 +61,7 @@ func getCities(c *gin.Context) {
 	}
 
 	sql_str := fmt.Sprintf(`SELECT title_ru, area_ru, region_ru FROM _cities 
-			WHERE LOWER(title_ru) LIKE LOWER('%s%%') `, str)
+			WHERE LOWER(title_ru) LIKE LOWER('%s%%')`, str)
 
 	if country_id != "" {
 		if _, err := strconv.Atoi(country_id); err != nil {
@@ -70,7 +70,7 @@ func getCities(c *gin.Context) {
 		}
 		sql_str += fmt.Sprintf(` AND country_id=%s`, country_id)
 	}
-	sql_str += fmt.Sprintf(`LIMIT %s`, lim)
+	sql_str += fmt.Sprintf(` LIMIT %s`, lim)
 	fmt.Println(sql_str)
 
 	rows, err := conn.Query(context.Background(), sql_str)
