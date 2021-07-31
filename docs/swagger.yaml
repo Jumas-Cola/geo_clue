@@ -1,0 +1,45 @@
+basePath: /
+host: 188.225.72.165
+info:
+  contact: {}
+  description: This is a api server for geo clue.
+  title: Swagger Geo API
+  version: "1.0"
+paths:
+  /city:
+    get:
+      parameters:
+      - description: search city by str
+        in: query
+        name: str
+        required: true
+        type: string
+      - description: search city by country
+        in: query
+        name: country
+        type: integer
+      - description: query limit
+        in: query
+        name: lim
+        type: string
+      produces:
+      - application/json
+      summary: Show a city list
+  /country:
+    get:
+      parameters:
+      - description: search country by str
+        in: query
+        name: str
+        required: true
+        type: string
+      - description: query limit
+        in: query
+        name: lim
+        type: string
+      produces:
+      - application/json
+      summary: Show a country list
+schemes:
+- http
+swagger: "2.0"

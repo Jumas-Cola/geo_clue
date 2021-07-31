@@ -1,0 +1,68 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a api server for geo clue.",
+        "title": "Swagger Geo API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "188.225.72.165",
+    "basePath": "/",
+    "paths": {
+        "/city": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Show a city list",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "search city by str",
+                        "name": "str",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "search city by country",
+                        "name": "country",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "query limit",
+                        "name": "lim",
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "/country": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Show a country list",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "search country by str",
+                        "name": "str",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "query limit",
+                        "name": "lim",
+                        "in": "query"
+                    }
+                ]
+            }
+        }
+    }
+}
