@@ -38,7 +38,18 @@
                         "name": "lim",
                         "in": "query"
                     }
-                ]
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.City"
+                            }
+                        }
+                    }
+                }
             }
         },
         "/country": {
@@ -61,7 +72,51 @@
                         "name": "lim",
                         "in": "query"
                     }
-                ]
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Country"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.City": {
+            "type": "object",
+            "properties": {
+                "area_ru": {
+                    "type": "string"
+                },
+                "city_id": {
+                    "type": "integer"
+                },
+                "country_id": {
+                    "type": "integer"
+                },
+                "region_ru": {
+                    "type": "string"
+                },
+                "title_ru": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Country": {
+            "type": "object",
+            "properties": {
+                "country_id": {
+                    "type": "integer"
+                },
+                "title_ru": {
+                    "type": "string"
+                }
             }
         }
     }

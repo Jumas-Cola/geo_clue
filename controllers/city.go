@@ -15,6 +15,7 @@ import (
 // @Param str query string true "search city by str"
 // @Param country query int false "search city by country"
 // @Param lim query string false "query limit"
+// @Success 200 {array} models.City
 // @Router /city [get]
 func GetCities(c *gin.Context) {
 	str := c.Query("str")

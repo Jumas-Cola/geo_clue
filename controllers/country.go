@@ -14,6 +14,7 @@ import (
 // @Produce  json
 // @Param str query string true "search country by str"
 // @Param lim query string false "query limit"
+// @Success 200 {array} models.Country
 // @Router /country [get]
 func GetCountries(c *gin.Context) {
 	str := c.Query("str")
